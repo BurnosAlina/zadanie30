@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+<body>
+<h1>Formularz rejestracyjny</h1>
+<div class="registration">
+    <form class="row g-3" th:action="@{/register}" method="post" th:object="${user}">
+        <div class="col-md-6">
+            <label for="firstName" class="form-label">Imię</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Imię" required th:field="*{firstName}">
+            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color: red"></p>
+        </div>
+        <div class="col-md-6">
+            <label for="lastName" class="form-label">Nazwisko</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Nazwisko" required
+                   th:field="*{lastName}">
+            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color: red"></p>
+        </div>
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">Ulica, numer domu i mieszkania</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Wiejska 32a/4" required
+                   th:field="*{address}">
+            <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" style="color: red"></p>
+        </div>
+        <div class="col-md-2">
+            <label for="inputZip" class="form-label">Kod pocztowy</label>
+            <input type="text" class="form-control" id="inputZip" placeholder="12-345" required th:field="*{postCode}">
+            <p th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}" style="color: red"></p>
+        </div>
+        <div class="col-md-10">
+            <label for="inputCity" class="form-label">Miasto</label>
+            <input type="text" class="form-control" id="inputCity" placeholder="Miasto" required th:field="*{city}">
+            <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}" style="color: red"></p>
+        </div>
+        <div class="col-12">
+            <label for="email" class="form-label">Adres email</label>
+            <input type="email" class="form-control" id="email" placeholder="email@example.com" required
+                   th:field="*{email}">
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red"></p>
+        </div>
+        <div class="col-12">
+            <label for="password" class="form-label">Hasło</label>
+            <input type="password" class="form-control" id="password" required th:field="*{password}">
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red"></p>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck" required th:field="*{regulationAcceptation}">
+            <label class="form-check-label" for="gridCheck">
+                Zgadzam się na warunki przedstawione w <a th:href="@{/}">regulaminie</a>
+            </label>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Rejestruj</button>
+        </div>
+    </form>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</html>

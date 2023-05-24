@@ -1,0 +1,10 @@
+.registration {
+    width: 100%;
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+}
