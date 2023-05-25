@@ -23,6 +23,11 @@ public class RegistrationController {
             model.addAttribute("user", userDto);
             return "index";
         }
+        return "redirect:/success";
+    }
+
+    @GetMapping("/success")
+    String success() {
         return "success";
     }
 }

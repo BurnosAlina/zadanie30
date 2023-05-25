@@ -4,27 +4,27 @@ import jakarta.validation.constraints.*;
 
 public class UserDto {
 
-    @NotBlank(message = "Pole nie może być puste")
-    @Size(min = 3, message = "Pole musi mieć conajmniej 3 znaki")
+    @NotBlank
+    @Size(min = 3)
     private String firstName;
-    @NotBlank(message = "Pole nie może być puste")
-    @Size(min = 3, message = "Pole musi mieć conajmniej 3 znaki")
+    @NotBlank
+    @Size(min = 3)
     private String lastName;
-    @NotBlank(message = "Pole nie może być puste")
+    @NotBlank
     private String address;
-    @NotBlank(message = "Pole nie może być puste")
-    @Pattern(regexp = "\\d{2}-\\d{3}", message = "Wpisz poprawny kod pocztowy (11-111)")
+    @NotBlank
+    @Pattern(regexp = "\\d{2}-\\d{3}")
     private String postCode;
-    @NotBlank(message = "Pole nie może być puste")
+    @NotBlank
     private String city;
-    @NotBlank(message = "Pole nie może być puste")
-    @Email(message = "Musi być poprawnie sformatowanym adresem email")
+    @NotBlank
+    @Email
     private String email;
-    @NotBlank(message = "Pole nie może być puste")
-    @Size(min = 8, message = "Hasło musi mieć conajmniej 8 znaków")
+    @NotBlank
+    @Size(min = 8)
     private String password;
 
-    @AssertTrue(message = "Akceptacja regulaminu jest wymagana")
+    @AssertTrue
     private boolean regulationAcceptation;
 
     public String getFirstName() {
